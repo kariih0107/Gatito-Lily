@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     height: 100%;
     width: 100%;
@@ -10,14 +14,14 @@ p {
     padding: 24px;
     margin: 0;
     position: absolute;
-    color: #cccccc;
+    color: #b3b3b3; 
     font-size: 2.4rem;
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Assistant';
     top: 0;
 }
 
 p span {
-    color: #808080;
+    color: #737373;
 }
 
 .container {
@@ -71,14 +75,31 @@ p span {
     border-bottom: 40px solid #fff;
     border-left: 30px solid transparent;
     border-right: 7px solid transparent;
-    border-radius: 14px 46px 0 28px;
+    border-top: 0px solid transparent;
+    transform-origin: bottom;
+    transform: rotate(-5deg);
+    border-radius: 14px 46px 0px 28px;
+}
+
+.ears > div:nth-child(1)::before,
+.ears > div:nth-child(2)::before {
+    content: '';
+    height: 15px;
+    width: 0px;
+    position: absolute;
+    border-bottom: 22px solid #b7b7b7;
+    border-left: 8px solid transparent;
+    border-right: 2px solid transparent;
+    left: -11px;
+    top: 5px;
+    transform: rotate(10deg);
 }
 
 .ears > div:nth-child(2) {
     left: 10px;
     top: -32px;
-    border-bottom: 40px solid #fff;
-    border-radius: 0 34px 3px 0;
+    border-radius: 0px 34px 3px 0;
+    transform: rotate(-22deg);
 }
 
 .sleep > div {
@@ -91,6 +112,39 @@ p span {
     transition: all 1s ease-out;
 }
 
+.sleep > div:nth-child(1) {
+    transform: translate(10px, 10px);
+    animation: zzz 5s 3s ease-in-out infinite;
+    left: calc(1 * 20px);
+}
+
+.sleep > div:nth-child(2) {
+    transform: translate(10px, 10px);
+    animation: zzz 5s 6s ease-in-out infinite;
+    left: calc(2 * 20px);
+}
+
+.sleep > div:nth-child(3) {
+    transform: translate(10px, 10px);
+    animation: zzz 5s 9s ease-in-out infinite;
+    left: calc(3 * 20px);
+}
+
+.sleep > div:nth-child(4) {
+    transform: translate(10px, 10px);
+    animation: zzz 4.5s 8s ease-in-out infinite;
+}
+
+.sleep > div:nth-child(5) {
+    transform: translate(10px, 10px);
+    animation: zzz 4.5s 10s ease-in-out infinite;
+}
+
+.sleep > div:nth-child(6) {
+    transform: translate(10px, 10px);
+    animation: zzz 4.5s 12s ease-in-out infinite;
+}
+
 @keyframes zzz {
     0% {
         transform: translate(10px, 10px);
@@ -100,21 +154,6 @@ p span {
     100% {
         transform: translate(10px, -240px);
         opacity: 0;
-    }
-}
-
-@for $i from 1 to 3 {
-    .sleep > div:nth-child(#{$i}) {
-        transform: translate(10px, 10px);
-        animation: zzz 5s $i*3s ease-in-out infinite;
-        left: calc($i*20 + px);
-    }
-}
-
-@for $i from 4 to 6 {
-    .sleep > div:nth-child(#{$i}) {
-        transform: translate(10px, 10px);
-        animation: zzz 4.5s $i*2s ease-in-out infinite;
     }
 }
 
@@ -159,6 +198,7 @@ p span {
     border-top: 6px solid #b7b7b7;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
+    border-bottom: 0px solid transparent;
     margin-top: 4px;
     display: inline-block;
 }
@@ -173,6 +213,10 @@ p span {
     width: 3px;
     background: #b7b7b7;
     transform: rotate(90deg);
+}
+
+.nose > div:nth-child(2) {
+    transform: translateX(111px);
 }
 
 .body {
